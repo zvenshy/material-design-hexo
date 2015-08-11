@@ -1,0 +1,14 @@
+<% if (site.posts.length){ %>
+  <div class="widget-wrap panel panel-primary">
+    <h3 class="panel-heading">Recents</h3>
+    <div class="panel-body">
+      <ul>
+        <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
+          <li>
+            <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+<% } %>
